@@ -1,0 +1,160 @@
+/* General box-sizing reset */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove default body margin and padding */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling in case of scaling issues */
+}
+
+/* Position the image container */
+.container {
+  position: relative;
+  transform: scale(0.8); /* Scale down the entire container */
+  transform-origin: center top; /* Anchor scaling from top-center */
+  min-height: 100vh; /* Ensure full viewport height */
+  background-color: white; /* Optional: Match background color */
+  display: flex;
+  flex-direction: column; /* Align content properly */
+  justify-content: center; /* Center content vertically */
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%; /* Center vertically */
+  transform: translateY(-50%); /* Align middle */
+  width: 72px; /* Increased size by 20% */
+  height: 72px; /* Increased size by 20% */
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 28.8px; /* Increased font size by 20% */
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4.8px 9.6px rgba(0, 0, 0, 0.2); /* Adjusted shadow */
+  transition: background-color 0.3s, transform 0.3s;
+  z-index: 1000;
+}
+
+/* Hover effects for buttons */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1); /* Slight zoom on hover */
+}
+
+/* Positioning */
+.prev {
+  left: 16px; /* Adjusted position for larger button */
+}
+
+.next {
+  right: 16px; /* Adjusted position for larger button */
+}
+
+/* Number text (1/5 etc.) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 9.6px; /* Reduced font size */
+  padding: 6.4px 9.6px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 0.8px 1.6px;
+  color: white;
+  line-height: 1.5;
+  font-size: 12.8px; /* Reduced font size */
+}
+
+/* Clear floats after rows */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Thumbnail row */
+.row {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center thumbnails horizontally */
+  gap: 8px; /* Adjusted gap */
+}
+
+/* Thumbnail styling */
+.column {
+  flex: 0 1 auto; /* Allow flexibility while keeping consistent size */
+  padding: 1.6px; /* Adjust padding */
+  box-sizing: border-box;
+}
+
+.demo {
+  opacity: 0.6;
+  width: 72%; /* Reduced size by 20% */
+  transition: opacity 0.3s, transform 0.3s, border 0.3s;
+  border: 1.6px solid transparent; /* Adjusted border width */
+}
+
+.demo.active {
+  border-color: red;
+  opacity: 1;
+  transform: scale(1.1); /* Slight zoom for active thumbnail */
+}
+
+/* Add fade effect to slides */
+.fade-in {
+  animation: fadeIn 1.6s ease-in-out; /* Adjusted duration */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Image hover message */
+.mySlides img {
+  position: relative;
+}
+
+.mySlides:hover::before {
+  content: "Click on image to see high-resolution version";
+  position: absolute;
+  bottom: 40%;
+  left: 50%;
+  transform: translate(-50%, 40%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 12.8px; /* Adjusted font size */
+  padding: 8px;
+  border-radius: 4px; /* Adjusted radius */
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 999;
+}
+
+.mySlides:hover::before {
+  opacity: 1;
+}
